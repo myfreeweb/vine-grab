@@ -27,10 +27,10 @@ cd get-wget-lua.tmp
 
 if builtin type -p curl &>/dev/null
 then
-  curl -L $WGET_DOWNLOAD_URL | tar -xj --strip-components=1
+  curl -L $WGET_DOWNLOAD_URL | tar -xjf - --strip-components=1
 elif builtin type -p wget &>/dev/null
 then
-  wget --output-document=- $WGET_DOWNLOAD_URL | tar -xj --strip-components=1
+  wget --output-document=- $WGET_DOWNLOAD_URL | tar -xjf - --strip-components=1
 else
   echo "You need Curl or Wget to download the source files."
   exit 1
